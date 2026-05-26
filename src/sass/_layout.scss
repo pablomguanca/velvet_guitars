@@ -1,0 +1,17 @@
+@use 'variables' as v;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: v.$ff-body;
+    font-size: 16px;
+    line-height: 1.5;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0a1628  0%, #0d2040 50%, #0f2952 100%);
+    background-attachment: fixed;
+    overflow-x: hidden;
+}

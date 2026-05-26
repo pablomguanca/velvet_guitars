@@ -1,0 +1,25 @@
+.contador {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    button {
+        padding: 0.4rem 0.8rem;
+        border: 2px solid rgb(0, 145, 255);
+        border-radius: 2px;
+        color:#000000;
+        font-size: 20px;
+        font-weight: 600;
+        background-color: rgb(200, 214, 214);
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgb(20, 26, 207);
+            color: white;
+        }
+    }
+
+    span {
+        color: rgb(255, 255, 255);
+    }
+}

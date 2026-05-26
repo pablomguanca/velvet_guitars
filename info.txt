@@ -1,0 +1,11 @@
+Aca machete de carpetas: my-app/
+├─ node_modules/          ← Código de las dependencias (npm install)
+├─ public/                ← Archivos públicos (favicons, imágenes sin procesamiento)
+├─ src/                   ← Acá va nuestro código de la app (JSX, CSS, etc.)
+│  ├─ App.jsx             ← Componente principal de la app
+│  ├─ main.jsx            ← Punto de entrada de React (donde se monta la app)
+│  └─ index.css           ← Estilos globales iniciales
+├─ index.html             ← HTML base (sirve como plantilla)
+├─ package.json           ← Configuración del proyecto y dependencias
+├─ vite.config.js         ← Configuración de Vite (normalmente se puede dejar tal cual)
+└─ .gitignore, README.md, etc.

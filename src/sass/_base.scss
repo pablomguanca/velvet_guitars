@@ -1,33 +1,76 @@
-.nav-container {
-    margin: auto;
-    padding: 2rem;
-    display: flex;
-    gap: 20px;
-    background-color: #111827;
-    justify-content: space-between;
-    align-items: center;
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    font-weight: 600;
-    a {
-        text-decoration: none;
-        color: #ffffff;
+.velvet-navbar {
+    position: relative;
+    background-color: #1a1a1a;
+    border-bottom: 2px solid #00000000;
+    box-shadow: 0 0 8px 2px;
+    padding: 0.5rem 1rem;
 
-        &:hover{
-            color: rgb(97, 118, 127);
+    .logo-header {
+        width: auto;
+        height: 60px;
+    }
+
+    .navbar-collapse {
+        .navbar-nav {
+            gap: 20px;
+
+            .nav-link {
+                color: #959595;
+                font-size: 1.1rem;
+                text-transform: uppercase;
+                letter-spacing: 0.05rem;
+                transition: all 0.3s ease;
+
+                &:hover,
+                &.active {
+                    color: #ffffff;
+                }
             }
+        }
     }
-    img {
-        width: 8rem;
+
+    .navbar-toggler {
+        background-color: #e6b800;
+        border-color: #e6b800;
+        transition: background-color 0.3s ease, border-color 0.3s ease;
+
+        &:hover,
+        &:focus {
+            background-color: rgb(154, 121, 0);
+            border-color: rgb(154, 121, 0);
+        }
+    }
+
+    @media (min-width: 1024px) {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        z-index: 10;
+
+        .navbar-nav {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+            width: auto;
+        }
+
+        .navbar-nav> :last-child {
+            position: absolute;
+            right: -7rem;
+            top: 50%;
+            transform: translateY(-58%);
+            margin: 0;
+        }
+
+        .logo-header {
+            position: relative;
+            z-index: 2;
+        }
     }
 }
-
-button {
-    padding: 0.4rem 1rem;
-    border: 2px solid rgb(0, 145, 255);
-    border-radius: 4px;
-    cursor: pointer;
-    background-color: rgb(20, 26, 207);
-    color: #ffffff;
-}
-

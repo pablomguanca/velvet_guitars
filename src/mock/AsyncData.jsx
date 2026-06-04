@@ -1,11 +1,11 @@
-import imgGibson from '../assets/productos/g_gibson_standard.jpg';
-import imgBillieJoe from '../assets/productos/g_billie_joe.jpg';
-import imgTelecaster from '../assets/productos/g_telecaster.jpg';
-import imgGibsonCustom from '../assets/productos/g_gibson_custom.jpg';
-import imgJackson from '../assets/productos/g_jackson.jpg';
-import imgSquier from '../assets/productos/g_squier.jpg';
-import imgZakkWilde from '../assets/productos/g_zakk_wylde.jpg';
-import imgFender from '../assets/productos/g_fender.jpg'
+import imgGibson from '../assets/products/g_gibson_standard.jpg';
+import imgBillieJoe from '../assets/products/g_billie_joe.jpg';
+import imgTelecaster from '../assets/products/g_telecaster.jpg';
+import imgGibsonCustom from '../assets/products/g_gibson_custom.jpg';
+import imgJackson from '../assets/products/g_jackson.jpg';
+import imgSquier from '../assets/products/g_squier.jpg';
+import imgZakkWilde from '../assets/products/g_zakk_wylde.jpg';
+import imgFender from '../assets/products/g_fender.jpg'
 
 const productos = [
     {

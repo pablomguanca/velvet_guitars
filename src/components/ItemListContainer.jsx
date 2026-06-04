@@ -29,7 +29,7 @@ const ItemListContainer = ({saludo}) => {
 
 
     return (
-        <>
+        <section className="hero-section">
             {
                 loader
                     ? <Loader text={type ? "Cargando categoria..." : "Cargando productos..."} />
@@ -38,7 +38,7 @@ const ItemListContainer = ({saludo}) => {
                         <ItemList data={data} />
                     </div>
             }
-        </>
+        </section>
     )
 }
 

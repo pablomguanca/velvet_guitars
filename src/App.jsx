@@ -28,7 +28,7 @@ function App() {
 
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/velvet_guitars/">
       <CartProvider>
         <Navbar />
         <button onClick={createHandleProduct}>Crear producto de prueba</button>

@@ -32,9 +32,9 @@ const ItemListContainer = ({saludo}) => {
         <section className="hero-section">
             {
                 loader
-                    ? <Loader text={type ? "Cargando categoria..." : "Cargando productos..."} />
+                    ? <Loader text={type ? "Cargando categoría..." : "Cargando productos..."} />
                     : <div>
-                        <h1>{saludo}{type && <span style={{ textTransform: 'capitalize' }}>{type}</span>}</h1>
+                        <h1>{saludo}{type && <span style={{ textTransform: 'uppercase', fontWeight: 'bold' }}>{type}</span>}</h1>
                         <ItemList data={data} />
                     </div>
             }

@@ -2,16 +2,17 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from 'firebase/firestore';
 
-const firebaseConfig = {
-    apiKey: "AIzaSyBy5f8CiwL-1n__S8YL4QbCs4ymXntanN0",
-    authDomain: "velvet-guitars.firebaseapp.com",
-    projectId: "velvet-guitars",
-    storageBucket: "velvet-guitars.firebasestorage.app",
-    messagingSenderId: "671792097371",
-    appId: "1:671792097371:web:3c97f5b07763320282377e",
-    measurementId: "G-2LJZY15Z1B"
-};
 
+
+const firebaseConfig = {
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+    appId: import.meta.env.VITE_FIREBASE_APP_ID,
+    measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
+};
 
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);

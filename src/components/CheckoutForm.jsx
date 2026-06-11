@@ -7,20 +7,40 @@ export default function App() {
     console.log(errors);
 
     return (
-        <form onSubmit={handleSubmit(purchase)}>
-            <input type="text" placeholder="Nombre" {...register("Nombre", { required: true, maxLength: 80 })} />
-            {errors["Nombre"] && <span style={{ color: 'red' }}>Por favor, ingresa tu nombre.</span>}
-            <input type="text" placeholder="Apellido" {...register("Apellido", { required: true, maxLength: 100 })} />
-            {errors["Apellido"] && <span style={{ color: 'red' }}>Por favor, ingresa tu apellido.</span>}
-            <input type="text" placeholder="Email" {...register("Email", { required: true, pattern: /^\S+@\S+$/i })} />
-            {errors["Email"] && <span style={{ color: 'red' }}>Por favor, ingresa un correo electrónico válido.</span>}
-            <input type="text" placeholder="Dirección" {...register("Dirección", { required: true, maxLength: 200 })} />
-            {errors["Dirección"] && <span style={{ color: 'red' }}>Por favor, ingresa tu dirección.</span>}
-            <input type="number" placeholder="Tarjeta de Crédito/Débito" {...register("Tarjeta de Crédito/Débito", { required: true, minLength: 16, maxLength: 16 })} />
-            {errors["Tarjeta de Crédito/Débito"] && <span style={{ color: 'red' }}>Por favor, ingresa un número de tarjeta válido.</span>}
-            <input type="number" placeholder="CVV" {...register("CVV", { required: true, minLength: 3, maxLength: 4 })} />
-            {errors["CVV"] && <span style={{ color: 'red' }}>Por favor, ingresa un CVV válido.</span>}
-            <input type="submit" />
+        <form className="checkout-form" onSubmit={handleSubmit(purchase)}>
+
+            <div className="checkout-form__field">
+                <input type="text" placeholder="Nombre" {...register("Nombre", { required: true, maxLength: 80 })} />
+                {errors["Nombre"] && <span className="checkout-form__error">Por favor, ingresá tu nombre.</span>}
+            </div>
+
+            <div className="checkout-form__field">
+                <input type="text" placeholder="Apellido" {...register("Apellido", { required: true, maxLength: 100 })} />
+                {errors["Apellido"] && <span className="checkout-form__error">Por favor, ingresá tu apellido.</span>}
+            </div>
+
+            <div className="checkout-form__field">
+                <input type="text" placeholder="Email" {...register("Email", { required: true, pattern: /^\S+@\S+$/i })} />
+                {errors["Email"] && <span className="checkout-form__error">Por favor, ingresá un email válido.</span>}
+            </div>
+
+            <div className="checkout-form__field">
+                <input type="text" placeholder="Dirección" {...register("Dirección", { required: true, maxLength: 200 })} />
+                {errors["Dirección"] && <span className="checkout-form__error">Por favor, ingresá tu dirección.</span>}
+            </div>
+
+            <div className="checkout-form__field">
+                <input type="number" placeholder="Número de tarjeta" {...register("Tarjeta de Crédito/Débito", { required: true, minLength: 16, maxLength: 16 })} />
+                {errors["Tarjeta de Crédito/Débito"] && <span className="checkout-form__error">Por favor, ingresá un número de tarjeta válido.</span>}
+            </div>
+
+            <div className="checkout-form__field">
+                <input type="number" placeholder="CVV" {...register("CVV", { required: true, minLength: 3, maxLength: 4 })} />
+                {errors["CVV"] && <span className="checkout-form__error">Por favor, ingresá un CVV válido.</span>}
+            </div>
+
+            <button type="submit" className="btn btn-success checkout-form__submit">Confirmar compra</button>
+
         </form>
     );
 }

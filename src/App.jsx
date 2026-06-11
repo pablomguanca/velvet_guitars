@@ -8,7 +8,7 @@ import CartContainer from './components/CartContainer';
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import { db } from './firebaseConfig';
 import createHandleProduct from './components/TestDbButton';
-import Form from './components/CheckoutForm';
+import Checkout from './components/CheckoutForm';
 
 function App() {
 
@@ -21,6 +21,7 @@ function App() {
           <Route path='/category/:type' element={<ItemListContainer saludo='Categoria ' />} />
           <Route path='/item/:id' element={<ItemDetailContainer />} />
           <Route path='/cart' element={<CartContainer />} />
+          <Route path='/checkout' element={<Checkout />} />
         </Routes>
       </CartProvider>
     </BrowserRouter>

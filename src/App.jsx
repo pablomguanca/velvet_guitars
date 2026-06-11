@@ -13,7 +13,7 @@ import Checkout from './components/CheckoutForm';
 function App() {
 
   return (
-    <BrowserRouter basename="/velvet_guitars/">
+    <BrowserRouter>
       <CartProvider>
         <Navbar />
         <Routes>

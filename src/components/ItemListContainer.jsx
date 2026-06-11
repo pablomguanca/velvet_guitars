@@ -6,7 +6,7 @@ import Loader from "./Loader"
 
 
 
-const ItemListContainer = ({saludo}) => {
+const ItemListContainer = ({ saludo }) => {
     const [data, setData] = useState([])
     const [loader, setLoader] = useState(true)
     const { type } = useParams()

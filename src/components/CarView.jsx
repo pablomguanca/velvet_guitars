@@ -1,10 +1,14 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react' 
 import { CartContext } from '../context/CartContext'
+import { useForm } from 'react-hook-form'
+import CheckoutForm from './CheckoutForm'
 
 
 
 const CartView = () => {
     const { cart, clear, removeItem, total } = useContext(CartContext)
+    const [showForm, setShowForm] = useState(false)
+
 
     return (
         <div className='cart-section'>
@@ -30,12 +34,14 @@ const CartView = () => {
                 }
             </div>
             <span className='cart-total'>Total a pagar: ${total()} ,00 </span>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '80%', padding: '2rem' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '80%', padding: '2rem', gap: '2rem' }}>
                 <button className='btn btn-danger' onClick={clear} >Vaciar carrito</button>
-                <button className='btn btn-success' >Termirar compra</button>
+                <button className='btn btn-success' onClick={() => setShowForm(true)} disabled={cart.length === 0}>Finalizar compra</button>
             </div>
+            {showForm && <CheckoutForm />}
         </div>
     )
 }
+
 
 export default CartView

@@ -1,10 +1,8 @@
-const Loader = () => {
-    return (
-        <div className="loader-container">
-            <div className="spinner"></div>
-            <p>Cargando productos...</p>
-        </div>
-    )
-}
+const Loader = ({ text = 'Cargando...' }) => (
+    <div className="loader-container">
+        <div className="spinner"></div>
+        <p>{text}</p>
+    </div>
+)
 
 export default Loader

@@ -3,7 +3,7 @@
     flex-direction: column;
     overflow: hidden;
     justify-content: space-between;
-    padding: 1rem;
+    padding: 0.3rem 0.6rem;
     width: 100%;
     border: 1px solid rgba(0, 0, 0, 0.236);
     border-radius: 8px;
@@ -23,7 +23,9 @@
     }
 
     &__title {
-        font-size: 1rem;
+        font-size: 0.875rem;
+        font-weight: 600;
+        margin: 0.5rem 0;
     }
 
     &__btn {

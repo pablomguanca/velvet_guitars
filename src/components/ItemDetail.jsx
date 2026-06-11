@@ -1,15 +1,11 @@
 import React, { useState } from 'react'
 import ItemCount from './ItemCount'
-//IMPORTAR PRIMERO EL HOOK PARA USAR EL CONTEXTO}
 import { useContext } from 'react'
-//SEGUNDO IMPORTO EL CONTEXTO QUE QUIERO UTILIZAR
 import { CartContext } from '../context/CartContext'
 import { Link } from 'react-router-dom'
 
 const ItemDetail = ({ detail }) => {
     const [purchase, setPurchase] = useState(false)
-    // const contexto = useContext(CartContext)
-    // console.log('contexto', contexto)
     const { cart, addItem } = useContext(CartContext)
     console.log('contexto', cart)
 

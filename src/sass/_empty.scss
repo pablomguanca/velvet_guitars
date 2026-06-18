@@ -1,0 +1,41 @@
+@use 'variables' as v;
+
+.empty-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 75px);
+    width: 100%;
+    background-image: url('/src/assets/img/bg_ecommerce_velvet (1).webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    &__modal {
+        box-sizing: border-box;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        z-index: 1;
+        width: 500px;
+        max-width: 90%;
+        min-height: 300px;
+        background: rgba(188, 194, 119, 1.0);
+        background: linear-gradient(45deg, rgba(188, 194, 119, 1.0), rgba(184, 209, 229, 1.0));
+        border-radius: 12px;
+        padding: 2.5rem 2rem;
+        gap: 16px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
+        animation: bounceIn;
+        animation-duration: 0.8s;
+
+        h2 {
+            font-family: v.$ff-body;
+            font-size: 1.8rem;
+            font-weight: 300;
+        }
+    }
+}

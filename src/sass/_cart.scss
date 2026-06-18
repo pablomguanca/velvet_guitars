@@ -1,13 +1,28 @@
 @use 'variables' as v;
 
+
 .cart-section {
-    display: flex;
+    display: grid;
     flex-direction: column;
     font-size: 1rem;
     justify-content: center;
     align-items: center;
     gap: 20px;
     padding: 1rem;
+
+    .cart-header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        vertical-align: middle;
+        gap: 1rem;
+
+        svg {
+            color: #343434;
+            transform: translateY(-2px);
+        }
+    }
 
     .cart-item {
         display: grid;
@@ -45,21 +60,28 @@
 
         &__controls {
             display: flex;
+            justify-content: center;
             gap: 8px;
             align-items: center;
             font-size: 13px;
         }
 
         &__quantity {
-            border: 1px solid rgba(0, 0, 0, 0.696);
-            border-radius: 4px;
-            font-weight: bold;
-            padding: 0.2rem 0.6rem; 
-            font-size: 1.2rem;
+            text-align: center;
+            font-weight: 400;
+            padding: 0.2rem 0.6rem;
+            font-size: 1.1rem;
             color: v.$text;
         }
 
         &__price {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: v.$text;
+        }
+
+        &__total {
+            text-align: center;
             border: 1px solid rgb(0, 99, 12);
             border-radius: 25px;
             background-color: rgba(0, 255, 13, 0.325);
@@ -68,16 +90,6 @@
             font-size: 1.2rem;
             font-weight: 600;
             color: rgb(26 86 33);
-        }
-
-        &__total {
-            text-align: center;
-            border-radius: 4px;
-            border-color: black;
-            text-transform: uppercase;
-            font-weight: bold;
-            font-size: 1rem;
-            color: v.$text;
         }
     }
 }

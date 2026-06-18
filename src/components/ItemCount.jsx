@@ -2,10 +2,8 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 
 
-const ItemCount = ({ stock, onAdd }) => {
+const ItemCount = ({ stock, onAdd, className }) => {
     const [count, setCount] = useState(1)
-
-
     const sumar = () => {
         if (count < stock) {
             setCount(count + 1)
@@ -17,8 +15,6 @@ const ItemCount = ({ stock, onAdd }) => {
             setCount(count - 1)
         }
     }
-
-
     const purchase = () => {
         onAdd(count)
     }
@@ -27,7 +23,7 @@ const ItemCount = ({ stock, onAdd }) => {
 
     console.log('ItemCount')
     return (
-        <div className="counter-container">
+        <div className={`counter-container ${className}`}>
             <div className="counter-controls">
                 <button className="btn btn-danger" onClick={restar}>-</button>
 

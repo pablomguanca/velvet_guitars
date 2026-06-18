@@ -2,14 +2,11 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-items: center;
+    max-width: 1024px;
     flex-wrap: wrap;
     gap: 10px;
 
     @media (min-width: 768px) {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    @media (min-width: 1024px) {
         grid-template-columns: repeat(3, 1fr);
     }
 
@@ -21,6 +18,7 @@
 .counter-container {
     display: flex;
     flex-direction: column;
+    margin: 2rem;
     color: rgb(12, 12, 12);
     align-items: center;
     gap: 20px;

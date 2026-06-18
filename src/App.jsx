@@ -9,6 +9,7 @@ import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import { db } from './firebaseConfig';
 import createHandleProduct from './components/TestDbButton';
 import Checkout from './components/CheckoutForm';
+import OrderSummary from './components/OrderSummary';
 
 function App() {
 
@@ -17,8 +18,8 @@ function App() {
       <CartProvider>
         <Navbar />
         <Routes>
-          <Route path='/' element={<ItemListContainer saludo='Bienvenidos a Velvet Guitars!' />} />
-          <Route path='/category/:type' element={<ItemListContainer saludo='Categoria ' />} />
+          <Route path='/' element={<ItemListContainer />} />
+          <Route path='/category/:type' element={<ItemListContainer />} />
           <Route path='/item/:id' element={<ItemDetailContainer />} />
           <Route path='/cart' element={<CartContainer />} />
           <Route path='/checkout' element={<Checkout />} />

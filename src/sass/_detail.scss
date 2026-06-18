@@ -1,39 +1,71 @@
+@use 'variables' as v;
+@use 'extends';
+@use 'mixins' as m;
+
 .product-detail {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 2rem;
+    align-self: flex-start;
+    padding: 1rem;
     min-height: 80vh;
-}
 
-.detail-card {
-    display: flex;
-    flex-direction: column;
-    max-width: 600px;
-    justify-content: center;
-    text-align: center;
-    padding: 2rem;
-    align-items: center;
-    gap: 10px;
+    &__card {
+        @extend %detail-card;
 
-    img {
-        width: 350px;
-        height: auto;
-        object-fit: cover;
-        border-radius: 8px;
-        box-shadow: 0 0 6px 4px rgba(0, 0, 0, 0.079);
+        @include m.tablet {
+            padding: 1rem 3rem;
+        }
+
+        &--price {
+            grid-column: 1;
+            font-family: v.$ff-body;
+            font-weight: bold;
+            font-size: 2rem;
+            color: #1a1a1a;
+            letter-spacing: -0.5px;
+
+            @include m.desktop {
+                grid-column: 2;
+                grid-row: 3;
+                align-self: center;
+                justify-self: center;
+                font-size: 4rem;
+            }
+        }
+
+        &--stock {
+            grid-column: 1;
+            text-transform: capitalize;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #5e5e5e;
+            text-align: left;
+            padding-left: 1rem;
+
+            @include m.desktop {
+                grid-column: 1;
+                grid-row: 4;
+                text-align: center;
+            }
+        }
+
+        &--counter {
+            grid-column: 1;
+            justify-self: stretch;
+            gap: 30px;
+
+            @include m.desktop {
+                grid-column: 2;
+                grid-row: 4;
+                margin: 0.5rem;
+            }
+        }
     }
 
-    h2 {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: rgb(12, 12, 12);
-    }
-
-    p {
-        font-size: 1rem;
-        color: rgb(31, 31, 31);
+    .buy-btn {
+        @extend %btn-velvet;
     }
 }
 

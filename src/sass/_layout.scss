@@ -24,3 +24,11 @@ button {
     font-weight: 600;
     cursor: pointer;
 }
+
+h1 {
+    font-family: v.$ff-title;
+    font-weight: 800;
+    font-size: 2rem;
+    color: #393939;
+    text-transform: capitalize;
+}

@@ -5,7 +5,7 @@
     box-shadow: 0 0 8px 2px;
     padding: 0.5rem 1rem;
 
-    .logo-header {
+    .logo-velvet {
         width: auto;
         height: 60px;
     }
@@ -15,10 +15,11 @@
             gap: 20px;
 
             .nav-link {
+                font-family: 'DM Sans';
                 color: #959595;
                 font-size: 1.1rem;
                 text-transform: uppercase;
-                letter-spacing: 0.05rem;
+                letter-spacing: 0.1rem;
                 transition: all 0.3s ease;
 
                 &:hover,

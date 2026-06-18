@@ -1,3 +1,6 @@
+@use 'variables' as v;
+@use 'extends';
+
 .product-card {
     display: flex;
     flex-direction: column;
@@ -9,6 +12,9 @@
     border-radius: 8px;
     box-shadow: 0 0 6px 4px rgba(0, 0, 0, 0.079);
     transition: all ease-in 0.3s;
+    animation: fadeIn;
+    animation-duration: 1s;
+    font-family: v.$ff-body;
 
     &:hover {
         box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.214);
@@ -29,22 +35,6 @@
     }
 
     &__btn {
-        display: flex;
-        flex-direction: column;
-        background-color: rgb(12, 12, 12);
-        padding: 0.5rem 0.8rem;
-        align-items: center;
-        text-decoration: none;
-        color: rgb(255, 255, 255);
-        border: solid 2px rgb(255, 255, 255);
-        border-radius: 8px;
-        box-shadow: 0 0 0 2px rgb(255, 255, 255);
-        transition: background-color 0.3s ease, box-shadow 0.3s ease;
-
-        &:hover {
-            background-color: #e6b800;
-            color: rgb(9, 9, 9);
-            box-shadow: 0 0 0 1px rgb(0, 0, 0);
-        }
+        @extend %btn-velvet;
     }
 }

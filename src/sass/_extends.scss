@@ -1,0 +1,85 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+
+%detail-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 1023px;
+    font-family: v.$ff-title;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    align-items: center;
+    gap: 16px 24px;
+    animation: fadeIn;
+    animation-duration: 1s;
+
+    @include m.desktop {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto auto auto auto;
+    }
+
+    img {
+        grid-column: 1;
+        width: 100%;
+        justify-self: center;
+        max-width: 280px;
+        border-radius: 8px;
+        box-shadow: 0 0 6px 4px rgba(0, 0, 0, 0.079);
+
+        @include m.desktop {
+            max-width: 300px;
+            grid-column: 1;
+            grid-row: 2/4;
+        }
+    }
+
+    h2 {
+        grid-column: 1;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: rgb(12, 12, 12);
+
+        @include m.desktop {
+            grid-column: 1/-1;
+            grid-row: 1;
+        }
+    }
+
+    p {
+        grid-column: 1;
+        text-align: justify;
+        font-size: 0.95rem;
+        color: rgb(31, 31, 31);
+
+        @include m.desktop {
+            grid-column: 2;
+            grid-row: 2;
+            padding: 0.5rem 1.5rem;
+            font-size: 0.85rem;
+            text-align: left;
+        }
+    }
+}
+
+%btn-velvet {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(12, 12, 12);
+    padding: 0.5rem 2.5rem;
+    width: 100%;
+    align-items: center;
+    text-decoration: none;
+    color: v.$text-btn;
+    border: solid 1px v.$border-btn;
+    border-radius: 50px;
+    box-shadow: 0 0 6px 2px v.$shadow-btn;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+        background-color: #e6b800;
+        color: rgb(9, 9, 9);
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0);
+    }
+}

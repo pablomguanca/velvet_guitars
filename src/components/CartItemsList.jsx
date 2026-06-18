@@ -1,15 +1,12 @@
 import React, { useContext } from 'react'
 import { CartContext } from '../context/CartContext'
-import { useNavigate } from 'react-router-dom'
 
-const CartView = () => {
+const CartItemsList = () => {
     const { cart, clear, removeItem, total } = useContext(CartContext)
-    const navigate = useNavigate()
 
     return (
-        <div className='cart-section'>
-            <h1 className='cart-title'>Tu carrito 🛒</h1>
-            <div>
+        <>
+            <article>
                 {
                     cart.map((compra) => (
                         <div key={compra.id} className='cart-item'>
@@ -18,7 +15,7 @@ const CartView = () => {
                             <div className='cart-item__info'>
                                 <span className='cart-item__description'>{compra.name}</span>
                                 <div className='cart-item__controls'>
-                                    <span className='cart-item__quantity'>{compra.quantity}</span>
+                                    <span className='cart-item__quantity'>{compra.quantity} x </span>
                                     <span className='cart-item__price'>${compra.price}</span>
                                 </div>
                                 <span className='cart-item__total'>Precio final: ${compra.price * compra.quantity}</span>
@@ -28,15 +25,12 @@ const CartView = () => {
                         </div>
                     ))
                 }
+            </article>
+            <div>
+                <span className='cart-total'>Total a pagar: ${total()} ,00 </span>
             </div>
-            <span className='cart-total'>Total a pagar: ${total()} ,00 </span>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '80%', padding: '2rem', gap: '2rem' }}>
-                <button className='btn btn-danger' onClick={clear} >Vaciar carrito</button>
-                <button className='btn btn-success' onClick={() => navigate('/checkout')} disabled={cart.length === 0}>Finalizar compra</button>
-            </div>
-        </div>
+        </>
     )
 }
 
-
-export default CartView
+export default CartItemsList

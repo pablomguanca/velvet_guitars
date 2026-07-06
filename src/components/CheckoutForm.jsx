@@ -5,6 +5,7 @@ import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { db } from '../firebaseConfig';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
+import OrderSummary from './OrderSummary';
 
 const CheckoutForm = () => {
     const { cart, total, clear } = useContext(CartContext);
@@ -22,8 +23,10 @@ const CheckoutForm = () => {
         try {
             const ordersRef = collection(db, 'orders');
             const docRef = await addDoc(ordersRef, orden);
+
             clear();
             reset();
+
             Swal.fire({
                 title: '¡Compra confirmada!',
                 text: `Gracias por tu compra en Velvet Guitars. Tu número de orden es: ${docRef.id}`,
@@ -45,41 +48,51 @@ const CheckoutForm = () => {
     };
 
     return (
-        <form className="checkout-form" onSubmit={handleSubmit(purchase)}>
-            <h2>Completá tus datos</h2>
+        <div className="checkout-page-container container mt-5">
+            <div className="row">
+                <div className="col-md-7">
+                    <form className="checkout-form" onSubmit={handleSubmit(purchase)}>
+                        <h2>Completá tus datos</h2>
 
-            <div className="checkout-form__field">
-                <input type="text" placeholder="Nombre" {...register("Nombre", { required: true, maxLength: 80 })} />
-                {errors["Nombre"] && <span className="checkout-form__error">Por favor, ingresá tu nombre.</span>}
+                        <div className="checkout-form__field mb-3">
+                            <input className="form-control" type="text" placeholder="Nombre" {...register("Nombre", { required: true, maxLength: 80 })} />
+                            {errors["Nombre"] && <span className="text-danger">Por favor, ingresá tu nombre.</span>}
+                        </div>
+
+                        <div className="checkout-form__field mb-3">
+                            <input className="form-control" type="text" placeholder="Apellido" {...register("Apellido", { required: true, maxLength: 100 })} />
+                            {errors["Apellido"] && <span className="text-danger">Por favor, ingresá tu apellido.</span>}
+                        </div>
+
+                        <div className="checkout-form__field mb-3">
+                            <input className="form-control" type="email" placeholder="Email" {...register("Email", { required: true, pattern: /^\S+@\S+$/i })} />
+                            {errors["Email"] && <span className="text-danger">Por favor, ingresá un email válido.</span>}
+                        </div>
+
+                        <div className="checkout-form__field mb-3">
+                            <input className="form-control" type="text" placeholder="Dirección" {...register("Dirección", { required: true, maxLength: 200 })} />
+                            {errors["Dirección"] && <span className="text-danger">Por favor, ingresá tu dirección.</span>}
+                        </div>
+
+                        <div className="checkout-form__field mb-3">
+                            <input className="form-control" type="number" placeholder="Número de tarjeta" {...register("Tarjeta", { required: true, minLength: 16, maxLength: 16 })} />
+                            {errors["Tarjeta"] && <span className="text-danger">Por favor, ingresá un número de tarjeta válido.</span>}
+                        </div>
+
+                        <div className="checkout-form__field mb-3">
+                            <input className="form-control" type="number" placeholder="CVV" {...register("CVV", { required: true, minLength: 3, maxLength: 4 })} />
+                            {errors["CVV"] && <span className="text-danger">Por favor, ingresá un CVV válido.</span>}
+                        </div>
+
+                        <button type="submit" className="btn btn-success w-100 checkout-form__submit">Confirmar compra</button>
+                    </form>
+                </div>
+
+                <div className="col-md-5">
+                    <OrderSummary />
+                </div>
             </div>
-
-            <div className="checkout-form__field">
-                <input type="text" placeholder="Apellido" {...register("Apellido", { required: true, maxLength: 100 })} />
-                {errors["Apellido"] && <span className="checkout-form__error">Por favor, ingresá tu apellido.</span>}
-            </div>
-
-            <div className="checkout-form__field">
-                <input type="email" placeholder="Email" {...register("Email", { required: true, pattern: /^\S+@\S+$/i })} />
-                {errors["Email"] && <span className="checkout-form__error">Por favor, ingresá un email válido.</span>}
-            </div>
-
-            <div className="checkout-form__field">
-                <input type="text" placeholder="Dirección" {...register("Dirección", { required: true, maxLength: 200 })} />
-                {errors["Dirección"] && <span className="checkout-form__error">Por favor, ingresá tu dirección.</span>}
-            </div>
-
-            <div className="checkout-form__field">
-                <input type="number" placeholder="Número de tarjeta" {...register("Tarjeta", { required: true, minLength: 16, maxLength: 16 })} />
-                {errors["Tarjeta"] && <span className="checkout-form__error">Por favor, ingresá un número de tarjeta de 16 dígitos.</span>}
-            </div>
-
-            <div className="checkout-form__field">
-                <input type="number" placeholder="CVV" {...register("CVV", { required: true, minLength: 3, maxLength: 4 })} />
-                {errors["CVV"] && <span className="checkout-form__error">Por favor, ingresá un CVV válido.</span>}
-            </div>
-
-            <button type="submit" className="btn btn-success checkout-form__submit">Confirmar compra</button>
-        </form>
+        </div>
     );
 };
 

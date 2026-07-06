@@ -1,32 +1,24 @@
-import ItemCount from './components/ItemCount';
 import ItemListContainer from './components/ItemListContainer';
 import Navbar from './components/Navbar';
 import ItemDetailContainer from './components/ItemDetailContainer';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { CartProvider } from './context/CartContext';
 import CartContainer from './components/CartContainer';
-import { getFirestore, collection, addDoc } from 'firebase/firestore';
-import { db } from './firebaseConfig';
-import createHandleProduct from './components/TestDbButton';
 import Checkout from './components/CheckoutForm';
-import OrderSummary from './components/OrderSummary';
 
 function App() {
-
   return (
-    <BrowserRouter>
-      <CartProvider>
-        <Navbar />
-        <Routes>
-          <Route path='/' element={<ItemListContainer />} />
-          <Route path='/category/:type' element={<ItemListContainer />} />
-          <Route path='/item/:id' element={<ItemDetailContainer />} />
-          <Route path='/cart' element={<CartContainer />} />
-          <Route path='/checkout' element={<Checkout />} />
-        </Routes>
-      </CartProvider>
-    </BrowserRouter>
+    <CartProvider>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<ItemListContainer />} />
+        <Route path='/category/:type' element={<ItemListContainer />} />
+        <Route path='/item/:id' element={<ItemDetailContainer />} />
+        <Route path='/cart' element={<CartContainer />} />
+        <Route path='/checkout' element={<Checkout />} />
+      </Routes>
+    </CartProvider>
   )
 }
 
-export default App
+export default App;

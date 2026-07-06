@@ -1,8 +1,18 @@
+import React, { useContext } from 'react';
+import { CartContext } from '../context/CartContext';
+
 const OrderSummary = () => {
+    const { total } = useContext(CartContext);
+    const subtotal = total();
+    const discount = 0;
+    const totalFinal = subtotal - discount;
+
     return (
-        <>
+        <div className="order-summary-container">
+            <h4 className="order-summary-title">Resumen de tu Orden</h4>
+
             <div className="summary-row">
-                <span>Producto</span>
+                <span>Subtotal Productos</span>
                 <span>${subtotal.toLocaleString("es-AR")}</span>
             </div>
 
@@ -12,10 +22,10 @@ const OrderSummary = () => {
             </div>
 
             <div className="summary-row summary-row--total">
-                <span>Total</span>
-                <span>${total.toLocaleString("es-AR")}</span>
+                <span>Total Final</span>
+                <span>${totalFinal.toLocaleString("es-AR")}</span>
             </div>
-        </>
+        </div>
     );
 };
 

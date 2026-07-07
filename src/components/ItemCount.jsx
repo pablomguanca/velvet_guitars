@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 
-
 const ItemCount = ({ stock, onAdd, className }) => {
     const [count, setCount] = useState(1)
     const sumar = () => {

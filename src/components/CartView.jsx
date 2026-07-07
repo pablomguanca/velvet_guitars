@@ -5,20 +5,34 @@ import CartItemsList from './CartItemsList'
 import CartWidget from './CartWidget'
 
 const CartView = () => {
-
-    const { cart, clear } = useContext(CartContext)
+    const { cart, clear, total } = useContext(CartContext)
     const navigate = useNavigate()
 
     return (
         <section className='cart-section'>
             <div className='cart-header'>
-            <h1>Tu carrito</h1>
-            <CartWidget />
+                <h2>Tu carrito</h2>
             </div>
+
             <CartItemsList />
-            <div>
-                <button className='btn btn-danger' onClick={clear}>Vaciar carrito</button>
-                <button className='btn btn-success' onClick={() => navigate('/checkout')} disabled={cart.length === 0}>Finalizar compra</button>
+
+            <div className='cart-summary'>
+                <div className="cart-summary__total">
+                    Total a pagar: <span>${total().toLocaleString('es-AR')}</span>
+                </div>
+
+                <div className='cart-summary__actions'>
+                    <button className='btn-clear' onClick={clear}>
+                        Vaciar carrito
+                    </button>
+                    <button
+                        className='btn-checkout'
+                        onClick={() => navigate('/checkout')}
+                        disabled={cart.length === 0}
+                    >
+                        Finalizar compra
+                    </button>
+                </div>
             </div>
         </section>
     )

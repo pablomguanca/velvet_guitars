@@ -1,0 +1,50 @@
+@use 'variables' as v;
+
+.order-summary {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eaeaea;
+    font-family: v.$ff-body;
+
+    &__title {
+        font-family: v.$ff-title;
+        color: v.$text-title;
+        font-size: 1.4rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid #f0f0f0;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05rem;
+    }
+
+    &__row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+        color: v.$text;
+
+        &--discount {
+            color: #dc3545;
+            font-style: italic;
+        }
+
+        &--total {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px dashed #ccc;
+            font-family: v.$ff-title;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: v.$navbar-bg;
+
+            span:last-child {
+                color: #198754;
+            }
+        }
+    }
+}

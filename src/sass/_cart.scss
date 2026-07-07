@@ -152,19 +152,24 @@
         &__remove {
             background: none;
             border: none;
-            color: #dc3545;
+            color: #999;
             cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.2s ease;
             padding: 0.5rem;
-            transition: transform 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
             &:hover {
-                transform: scale(1.1);
+                color: #dc3545;
+                transform: scale(1.2);
             }
+        }
 
-            svg {
-                width: 20px;
-                height: 20px;
-            }
+        &__price,
+        &__total {
+            text-align: center;
         }
     }
 

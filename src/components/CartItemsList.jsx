@@ -7,24 +7,24 @@ const CartItemsList = () => {
     return (
         <>
             <article>
-                {
-                    cart.map((compra) => (
-                        <div key={compra.id} className='cart-item'>
-                            <img src={compra.img} alt={compra.name} />
-
-                            <div className='cart-item__info'>
-                                <span className='cart-item__description'>{compra.name}</span>
-                                <div className='cart-item__controls'>
-                                    <span className='cart-item__quantity'>{compra.quantity} x </span>
-                                    <span className='cart-item__price'>${compra.price}</span>
-                                </div>
-                                <span className='cart-item__total'>Precio final: ${compra.price * compra.quantity}</span>
-                            </div>
-
-                            <button className='btn btn-danger' onClick={() => removeItem(compra.id)}>X</button>
+                {cart.map((prod) => (
+                    <div key={prod.id} className="cart-item">
+                        <img src={prod.img} alt={prod.name} />
+                        <div className="cart-item__info">
+                            <h3 className="cart-item__title">{prod.name}</h3>
                         </div>
-                    ))
-                }
+                        <div className="cart-item__controls">
+                            <span className="cart-item__quantity">{prod.quantity}</span>
+                        </div>
+                        <div className="cart-item__total">
+                            ${(prod.quantity * prod.price).toLocaleString('es-AR')}
+                        </div>
+                        <button className="cart-item__remove" onClick={() => removeItem(prod.id)}>
+                            <i className="bi bi-trash"></i>
+                            X
+                        </button>
+                    </div>
+                ))}
             </article>
             <div>
                 <span className='cart-total'>Total a pagar: ${total()} ,00 </span>

@@ -1,0 +1,139 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+.about-us {
+    max-width: 1200px;
+    margin: 2rem auto 4rem;
+    padding: 0 1.5rem;
+    font-family: v.$ff-body;
+    color: v.$text;
+
+    &__hero {
+        text-align: center;
+        background-color: v.$navbar-bg;
+        color: #ffffff;
+        padding: 4rem 2rem;
+        border-radius: 12px;
+        margin-bottom: 4rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+        h1 {
+            font-family: v.$ff-title;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+
+            @include m.tablet {
+                font-size: 3.5rem;
+            }
+        }
+
+        p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    }
+
+    .about-us__banner {
+        position: relative;
+        width: 100%;
+        height: 400px;
+        overflow: hidden;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: relative;
+            z-index: 0;
+        }
+
+        .titulo-sobre-imagen {
+            position: relative;
+            z-index: 2;
+            color: white;
+        }
+    }
+
+    &__content {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3rem;
+
+        @include m.desktop {
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+        }
+    }
+
+    &__story,
+    &__values {
+        h2 {
+            font-family: v.$ff-title;
+            color: v.$text-title;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 60px;
+                height: 3px;
+                background-color: v.$navbar-bg;
+            }
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            color: #444;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 1.5rem;
+
+            li {
+                font-size: 1.05rem;
+                line-height: 1.5;
+                margin-bottom: 1rem;
+                padding-left: 2rem;
+                position: relative;
+
+                &::before {
+                    content: '✓';
+                    color: #198754;
+                    font-weight: bold;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                }
+
+                strong {
+                    color: v.$text-title;
+                }
+            }
+        }
+    }
+}

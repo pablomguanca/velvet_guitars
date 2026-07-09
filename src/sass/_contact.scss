@@ -1,0 +1,92 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+@use 'extends';
+
+.contact {
+    max-width: 1200px;
+    margin: 2rem auto 4rem;
+    padding: 0 1.5rem;
+    font-family: v.$ff-body;
+    color: v.$text;
+
+    &__hero {
+        text-align: center;
+        margin-bottom: 3rem;
+
+        h1 {
+            font-family: v.$ff-title;
+            font-size: 2.5rem;
+            color: v.$text-title;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: #666;
+        }
+    }
+
+    &__container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3rem;
+
+        @include m.desktop {
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+        }
+    }
+
+    &__form {
+        @include m.form-velvet;
+        max-width: 100%;
+        border-radius: none;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        background-color: #f4f4f4;
+        border-radius: 12px;
+
+        button {
+            @extend %btn-velvet;
+        }
+    }
+
+    &__info {
+        background-color: #f4f4f4;
+        padding: 2.5rem 2rem;
+        border-radius: 12px;
+        height: fit-content;
+
+        h3 {
+            font-family: v.$ff-title;
+            font-size: 1.5rem;
+            color: v.$text-title;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 0.5rem;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+
+        .info-item {
+            margin-bottom: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+
+            strong {
+                color: v.$navbar-bg;
+                font-size: 1.1rem;
+            }
+
+            span {
+                color: #444;
+                font-size: 1rem;
+            }
+        }
+    }
+}

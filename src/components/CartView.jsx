@@ -1,12 +1,51 @@
 import React, { useContext } from 'react'
 import { CartContext } from '../context/CartContext'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import CartItemsList from './CartItemsList'
 import CartWidget from './CartWidget'
+import Swal from 'sweetalert2'
 
 const CartView = () => {
     const { cart, clear, total } = useContext(CartContext)
     const navigate = useNavigate()
+
+    const handleClearCart = () => {
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: "Vas a eliminar todos los productos de tu carrito.",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#1a1a1a',
+            cancelButtonColor: '#dc3545',
+            confirmButtonText: 'Sí, vaciar',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                clear();
+                Swal.fire({
+                    title: '¡Vaciado!',
+                    text: 'Tu carrito está limpio.',
+                    icon: 'success',
+                    timer: 1500,
+                    showConfirmButton: false
+                });
+            }
+        });
+    }
+
+    if (cart.length === 0) {
+        return (
+            <div className="empty-container">
+                <div className="empty-container__modal">
+                    <h2>Tu carrito está vacío</h2>
+                    <p>Parece que aún no elegiste tu próxima guitarra.</p>
+                    <Link to="/" className="btn-dark" style={{ marginTop: '1rem', padding: '0.8rem 2rem', display: 'inline-block' }}>
+                        Volver a la tienda
+                    </Link>
+                </div>
+            </div>
+        )
+    }
 
     return (
         <section className='cart-section'>
@@ -22,7 +61,7 @@ const CartView = () => {
                 </div>
 
                 <div className='cart-summary__actions'>
-                    <button className='btn-clear' onClick={clear}>
+                    <button className='btn-clear' onClick={handleClearCart}>
                         Vaciar carrito
                     </button>
                     <button

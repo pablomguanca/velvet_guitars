@@ -18,9 +18,6 @@ const ItemCount = ({ stock, onAdd, className }) => {
         onAdd(count)
     }
 
-
-
-    console.log('ItemCount')
     return (
         <div className={`counter-container ${className}`}>
             <div className="counter-controls">

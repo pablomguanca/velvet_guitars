@@ -9,8 +9,7 @@ export default function SeedCatalog() {
     useEffect(() => {
         const seed = async () => {
             try {
-                console.log(products[0].img);
-                
+
                 for (const p of products) {
                     const productRef = doc(db, "products", p.id);
 

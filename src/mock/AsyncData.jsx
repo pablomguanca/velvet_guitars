@@ -1,12 +1,3 @@
-import imgGibson from '../assets/products/g_gibson_standard.jpg';
-import imgBillieJoe from '../assets/products/g_billie_joe.jpg';
-import imgTelecaster from '../assets/products/g_telecaster.jpg';
-import imgGibsonCustom from '../assets/products/g_gibson_custom.jpg';
-import imgJackson from '../assets/products/g_jackson.jpg';
-import imgSquier from '../assets/products/g_squier.jpg';
-import imgZakkWilde from '../assets/products/g_zakk_wylde.jpg';
-import imgFender from '../assets/products/g_fender.jpg'
-
 export const products = [
     {
         id: '01',
@@ -15,7 +6,7 @@ export const products = [
         stock: 20,
         price: 1300,
         category: 'nuevos',
-        img: imgGibson
+        img: 'g_gibson_standard.jpg'
     },
     {
         id: '02',
@@ -24,7 +15,7 @@ export const products = [
         stock: 20,
         price: 1250,
         category: 'mas vendidos',
-        img: imgTelecaster
+        img: 'g_telecaster.jpg'
     },
     {
         id: '03',
@@ -33,7 +24,7 @@ export const products = [
         stock: 14,
         price: 5000,
         category: 'ofertas',
-        img: imgFender
+        img: 'g_fender.jpg'
     },
     {
         id: '04',
@@ -42,7 +33,7 @@ export const products = [
         stock: 20,
         price: 3000,
         category: 'ofertas',
-        img: imgSquier
+        img: 'g_squier.jpg'
     },
     {
         id: '05',
@@ -51,7 +42,7 @@ export const products = [
         stock: 4,
         price: 3000,
         category: 'ofertas',
-        img: imgBillieJoe
+        img: 'g_billie_joe.jpg'
     },
     {
         id: '06',
@@ -60,7 +51,7 @@ export const products = [
         stock: 8,
         price: 3000,
         category: 'ofertas',
-        img: imgZakkWilde
+        img: 'g_zakk_wylde.jpg'
     },
     {
         id: '07',
@@ -69,7 +60,7 @@ export const products = [
         stock: 5,
         price: 3000,
         category: 'ofertas',
-        img: imgGibsonCustom
+        img: 'g_gibson_custom.jpg'
     },
     {
         id: '08',
@@ -78,6 +69,6 @@ export const products = [
         stock: 15,
         price: 3000,
         category: 'ofertas',
-        img: imgJackson
+        img: 'g_jackson.jpg'
     }
 ]

@@ -20,7 +20,6 @@ const ItemDetailContainer = () => {
                     const productData = { id: resp.id, ...resp.data() };
                     setDetail(productData);
 
-                    // --- SEO Dinámico ---
                     document.title = `${productData.name} | Velvet Guitars`;
                     let metaDescription = document.querySelector('meta[name="description"]');
                     if (metaDescription) {

@@ -4,8 +4,12 @@ import { Link } from 'react-router-dom';
 const Item = ({ prod }) => {
     const isLowStock = prod.stock > 0 && prod.stock <= 3;
     const isOutOfStock = prod.stock === 0;
+    const getImagePath = (imageName) => {
+        return new URL(`../assets/products/${imageName}`, import.meta.url).href;
+    };
 
     return (
+
         <div className={`product-card ${isOutOfStock ? 'product-card--out-of-stock' : ''}`}>
 
             {isLowStock && (
@@ -19,7 +23,7 @@ const Item = ({ prod }) => {
                 </span>
             )}
 
-            <img className="product-card__img" src={prod.img} alt={prod.name} />
+            <img className="product-card__img" src={getImagePath(prod.img)} alt={prod.name} />
 
             <div className="product-card__body">
                 <h5 className="product-card__title">{prod.name}</h5>

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-
+import {imgVelvetStore} from '../assets/img/tienda_velvet_guitars.jpeg'
 const AboutUs = () => {
 
     useEffect(() => {
@@ -27,7 +27,7 @@ const AboutUs = () => {
             </div>
             
             <div className="about-us__banner">
-                <img src="/src/assets/img/tienda_velvet_guitars.jpeg" alt="El salón principal de Velvet Guitars" />
+                <img src={imgVelvetStore} alt="El salón principal de Velvet Guitars" />
             </div>
             
             <div className="about-us__content">

@@ -3,6 +3,7 @@ import ItemCount from './ItemCount';
 import { CartContext } from '../context/CartContext';
 import { Link } from 'react-router-dom';
 import CrossSelling from './CrossSelling';
+import { getImagePath } from '../utils/getImagePath';
 
 const ItemDetail = ({ detail }) => {
     const [purchase, setPurchase] = useState(false);
@@ -17,7 +18,7 @@ const ItemDetail = ({ detail }) => {
         <div className="product-detail">
             <article className="product-detail__card">
 
-                <img src={detail.img} alt={detail.name} />
+                <img src={getImagePath(detail.img)} alt={detail.name} />
                 <h2>{detail.name}</h2>
                 <p>{detail.description}</p>
 

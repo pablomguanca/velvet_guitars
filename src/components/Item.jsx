@@ -1,12 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { getImagePath } from '../utils/getImagePath';
 
 const Item = ({ prod }) => {
     const isLowStock = prod.stock > 0 && prod.stock <= 3;
     const isOutOfStock = prod.stock === 0;
-    const getImagePath = (imageName) => {
-        return new URL(`../assets/products/${imageName}`, import.meta.url).href;
-    };
 
     return (
 

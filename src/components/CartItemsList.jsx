@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { CartContext } from '../context/CartContext'
+import { getImagePath } from '../utils/getImagePath'
 
 const CartItemsList = () => {
     const { cart, clear, removeItem, total } = useContext(CartContext)
@@ -9,7 +10,7 @@ const CartItemsList = () => {
             <article>
                 {cart.map((prod) => (
                     <div key={prod.id} className="cart-item">
-                        <img src={prod.img} alt={prod.name} />
+                        <img src={getImagePath(detail.img)} alt={prod.name} />
                         <div className="cart-item__info">
                             <h3 className="cart-item__title">{prod.name}</h3>
                         </div>

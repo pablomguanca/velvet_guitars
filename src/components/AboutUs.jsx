@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import {imgVelvetStore} from '../assets/img/tienda_velvet_guitars.jpeg'
+import imgVelvetStore from '../assets/img/tienda_velvet_guitars.jpeg'
 const AboutUs = () => {
 
     useEffect(() => {

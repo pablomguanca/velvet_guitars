@@ -17,15 +17,15 @@ const ItemDetail = ({ detail }) => {
     return (
         <div className="product-detail">
             <article className="product-detail__card">
-
                 <img src={getImagePath(detail.img)} alt={detail.name} />
+
                 <h2>{detail.name}</h2>
                 <p>{detail.description}</p>
 
                 <span className="product-detail__card--price">
                     ${detail.price?.toLocaleString('es-AR')}
                 </span>
-
+                console.log("img:", detail.img, "src:", getImagePath(detail.img));
                 {detail.stock === 0 ? (
                     <span className="product-detail__card--stock text-danger fw-bold">
                         ❌ Producto temporalmente agotado

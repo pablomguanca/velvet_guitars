@@ -7,7 +7,7 @@ import imgSquier from '../assets/products/g_squier.jpg';
 import imgZakkWilde from '../assets/products/g_zakk_wylde.jpg';
 import imgFender from '../assets/products/g_fender.jpg'
 
-const productos = [
+export const products = [
     {
         id: '01',
         name: 'Guitarra Gibson Les Paul Standard (Acabado Sunburst)',
@@ -81,21 +81,3 @@ const productos = [
         img: imgJackson
     }
 ]
-
-
-export const getProducts = () => {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve(productos)
-        }, 3000)
-    })
-}
-
-export const getOneProduct = (id) => {
-    return new Promise((resolve) => {
-        let prd = productos.find((item) => item.id === id)
-        setTimeout(() => {
-            resolve(prd)
-        }, 3000)
-    })
-}

@@ -7,10 +7,12 @@ import CartContainer from './components/CartContainer';
 import Checkout from './components/CheckoutForm';
 import AboutUs from './components/AboutUs';
 import Contact from './components/Contact';
+import SeedCatalog from './components/SeedCatalog';
 
 function App() {
   return (
     <CartProvider>
+      <SeedCatalog />
       <Navbar />
       <Routes>
         <Route path='/' element={<ItemListContainer />} />

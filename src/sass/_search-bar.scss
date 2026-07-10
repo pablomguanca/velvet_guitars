@@ -1,0 +1,54 @@
+@use 'variables' as v;
+
+.search-bar {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 2rem auto 3rem; // Lo centra y le da aire arriba y abajo
+    padding: 0 1rem;
+
+    &__input {
+        width: 100%;
+        padding: 0.8rem 2.5rem 0.8rem 1.2rem; // Espacio extra a la derecha para la cruz de limpiar
+        font-family: v.$ff-body;
+        font-size: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 30px; // Estilo píldora súper moderno
+        background-color: #fafafa;
+        transition: all 0.3s ease;
+
+        &:focus {
+            outline: none;
+            border-color: v.$navbar-bg; // Tu color institucional oscuro
+            background-color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+    }
+
+    &__clear {
+        position: absolute;
+        right: 2rem;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        color: #999;
+        cursor: pointer;
+        font-size: 0.9rem;
+        padding: 0.2rem;
+        transition: color 0.2s;
+
+        &:hover {
+            color: #dc3545;
+        }
+    }
+}
+
+.catalog-empty-message {
+    text-align: center;
+    font-family: v.$ff-body;
+    font-size: 1.2rem;
+    color: #666;
+    grid-column: 1 / -1;
+    margin: 4rem 0;
+}

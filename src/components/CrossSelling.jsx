@@ -9,7 +9,6 @@ const CrossSelling = ({ category, currentId }) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        // Si por algún motivo la categoría llega vacía, no hacemos la consulta
         if (!category) return;
 
         setLoading(true);
@@ -22,7 +21,6 @@ const CrossSelling = ({ category, currentId }) => {
         getDocs(q).then((resp) => {
             const relatedProducts = resp.docs
                 .map(doc => ({ id: doc.id, ...doc.data() }))
-                // Filtramos la guitarra actual
                 .filter(prod => prod.id !== currentId);
 
             setRelated(relatedProducts);
@@ -33,10 +31,8 @@ const CrossSelling = ({ category, currentId }) => {
         });
     }, [category, currentId]);
 
-    // Mientras busca, podemos mostrar un micro-loader o devolver null para que sea invisible
     if (loading) return null;
 
-    // Si no hay productos relacionados, no renderizamos nada
     if (related.length === 0) return null;
 
     return (

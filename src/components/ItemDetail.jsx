@@ -4,6 +4,7 @@ import { CartContext } from '../context/CartContext';
 import { Link } from 'react-router-dom';
 import CrossSelling from './CrossSelling';
 import { getImagePath } from '../utils/getImagePath';
+import { toastSuccess } from '../utils/customToasts';
 
 const ItemDetail = ({ detail }) => {
     const [purchase, setPurchase] = useState(false);
@@ -12,6 +13,7 @@ const ItemDetail = ({ detail }) => {
     const onAdd = (cantidad) => {
         addItem(detail, cantidad);
         setPurchase(true);
+        toastSuccess(`¡Agregaste ${cantidad} ${detail.name} al carrito!`);
     };
 
     return (
@@ -23,7 +25,7 @@ const ItemDetail = ({ detail }) => {
                 <p>{detail.description}</p>
 
                 <span className="product-detail__card--price">
-                    ${detail.price?.toLocaleString('es-AR')}
+                    USD {detail.price?.toLocaleString('es-AR')}
                 </span>
                 {detail.stock === 0 ? (
                     <span className="product-detail__card--stock text-danger fw-bold">

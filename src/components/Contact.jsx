@@ -82,7 +82,7 @@ const Contact = () => {
                     </div>
                     <div className="info-item">
                         <strong>Showroom:</strong>
-                        <span>Palermo, CABA (Con cita previa)</span>
+                        <span>Avenida SiempreViva 1988 (Con cita previa)</span>
                     </div>
                 </aside>
             </div>

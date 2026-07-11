@@ -66,6 +66,8 @@
 
     .buy-btn {
         @extend %btn-velvet;
+        flex: 1;
+        white-space: nowrap;
     }
 }
 

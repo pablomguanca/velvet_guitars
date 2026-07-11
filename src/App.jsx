@@ -2,6 +2,7 @@ import ItemListContainer from './components/ItemListContainer';
 import Navbar from './components/Navbar';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import { Route, Routes } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 import { CartProvider } from './context/CartContext';
 import CartContainer from './components/CartContainer';
 import Checkout from './components/CheckoutForm';
@@ -12,6 +13,7 @@ import SeedCatalog from './components/SeedCatalog';
 function App() {
   return (
     <CartProvider>
+      <Toaster/>
       <SeedCatalog />
       <Navbar />
       <Routes>

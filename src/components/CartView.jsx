@@ -11,7 +11,7 @@ const CartView = () => {
 
     const handleClearCart = () => {
         Swal.fire({
-            title: '¿Estás seguro?',
+            title: '¿Querés vaciar tu carrito?',
             text: "Vas a eliminar todos los productos de tu carrito.",
             icon: 'warning',
             showCancelButton: true,
@@ -33,20 +33,6 @@ const CartView = () => {
         });
     }
 
-    if (cart.length === 0) {
-        return (
-            <div className="empty-container">
-                <div className="empty-container__modal">
-                    <h2>Tu carrito está vacío</h2>
-                    <p>Parece que aún no elegiste tu próxima guitarra.</p>
-                    <Link to="/" className="btn-dark" style={{ marginTop: '1rem', padding: '0.8rem 2rem', display: 'inline-block' }}>
-                        Volver a la tienda
-                    </Link>
-                </div>
-            </div>
-        )
-    }
-
     return (
         <section className='cart-section'>
             <div className='cart-header'>
@@ -57,7 +43,7 @@ const CartView = () => {
 
             <div className='cart-summary'>
                 <div className="cart-summary__total">
-                    Total a pagar: <span>${total().toLocaleString('es-AR')}</span>
+                    Total a pagar: <span>USD{total().toLocaleString('es-AR')}</span>
                 </div>
 
                 <div className='cart-summary__actions'>
